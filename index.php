@@ -44,17 +44,17 @@ $produkte = $pdo->query("SELECT * FROM produkte")->fetchAll(PDO::FETCH_ASSOC);
 <head>
   <meta charset="UTF-8">
   <title>Produktverwaltung</title>
-<style>
-    #tabelle td:nth-child(2), #tabelle th:nth-child(2) { min-width: 150px; }
-    #tabelle td:nth-child(3), #tabelle th:nth-child(3) { min-width: 90px; text-align: right; }
-    #tabelle td:nth-child(4), #tabelle th:nth-child(4) { min-width: 250px; }
-    body {
-    max-width: 600px;
-    margin: 0 auto;
-    }
-    input[type="text"], input[type="number"] {
-    width: 120px;
-    }    
+    <style>
+        #tabelle td:nth-child(2), #tabelle th:nth-child(2) { min-width: 150px; }
+        #tabelle td:nth-child(3), #tabelle th:nth-child(3) { min-width: 90px; text-align: right; }
+        #tabelle td:nth-child(4), #tabelle th:nth-child(4) { min-width: 250px; }
+        body {
+        max-width: 600px;
+        margin: 0 auto;
+        }
+        input[name="name"]         { min-width: 150px; }
+        input[name="preis"]        { min-width: 90px;  }
+        input[name="beschreibung"] { min-width: 250px; }
     </style>
 </head>
 <body>
@@ -86,6 +86,7 @@ $produkte = $pdo->query("SELECT * FROM produkte")->fetchAll(PDO::FETCH_ASSOC);
     <input type="text"   name="name"          placeholder="Name"          value="<?= htmlspecialchars($bearbeiten['name'] ?? '') ?>">
     <input type="number" name="preis"         placeholder="Preis" step="0.01" value="<?= $bearbeiten['preis'] ?? '' ?>">
     <input type="text"   name="beschreibung"  placeholder="Beschreibung"  value="<?= htmlspecialchars($bearbeiten['beschreibung'] ?? '') ?>">
+    <br><br>
     <button type="submit">Speichern</button>
     <a href="index.php"><button type="button">Abbrechen</button></a>
   </form>
